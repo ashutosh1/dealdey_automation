@@ -1,0 +1,71 @@
+shippable_deal:
+  title: Black Slazenger Mens Polo Shirt
+  is_product_deal: true
+  sku_number: DD2444
+  returns: "Lorem ipsum dolor sit amet.Lorem ipsum dol..."
+  
+non_shippable_deal:
+  title: Limited - Time offer
+  shippable: false
+  shippable_states: 0
+  sku_number: DD2440
+  keywords: test
+  
+pod_shippable_deal:
+  title: Beaudy Professional Hair Straightene
+  sku_number: DD2439
+  
+pod_non_shippable_deal:
+  title: PoD Service Deal 1
+  is_product_deal: false
+  shippable: false
+  shippable_states: 0
+  sku_number: DD2439
+  shippable: false
+
+rencreditmax_deal:
+  title: Its a rencredit deal
+  cod_available: false
+  list_price: 50000
+  discounted_price: 50000
+  is_product_deal: true
+  sku_number: DD2426
+  rencredit_purchasable: true
+  returns: "Lorem ipsum dolor sit amet.Lorem ipsum dol..."
+  keywords: "rencreditmax"
+  
+rencredit_deal:
+  title: Its a rencredit deal
+  cod_available: false
+  is_product_deal: true
+  sku_number: DD2450
+  rencredit_purchasable: true
+  returns: "Lorem ipsum dolor sit amet.Lorem ipsum dol..."
+  
+shared:
+  description: "Lorem ipsum dolor sit amet.&nbsp;Lorem ipsum dol..."
+  list_price: 4444.4
+  discounted_price: 3333.3
+  commission: 111.0
+  minimum_limit: 1
+  maximum_limit: 1000
+  user_upper_limit: 70
+  address_line1: "2/6 West Patel Nagar"
+  address_line2: "Lorem ipsum dolor sit"
+  sms_text: "Lorem ipsum dolor sit amet. "
+  latitude: 6.44292
+  longitude: 3.42334
+  test_deal: false
+  cod_available: true
+  display_quantity: 3
+  shippable: true
+  shippable_states: 8
+  short_title: "title of deal"
+  payment: "<p>Lorem ipsum dolor sit amet."
+  rencredit_purchasable: false
+  hide_timer: false
+  show_home_page: true
+  christmas_store: false
+  highlights: "<p>abc</p>"
+  fine_prints: "<p>abc</p>"
+  delivery: "test"

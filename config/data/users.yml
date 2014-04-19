@@ -1,0 +1,43 @@
+admin_first:
+  email: vijay@vinsol.com
+  password: 123456
+
+admin_second:
+  email: vij102@mailinator.com
+  password: 123456
+
+user_update_data: 
+  firstname: ~first_name
+  lastname: ~last_name
+  mobile: ~randomize ['08919191919', '07919191919']
+  
+user_revert_data:
+  firstname: vijay 
+  lastname: test
+
+user_first:
+  email: "user@mailinator.com"
+
+merchant_first:
+  email: "merchant@mailinator.com"
+
+merchant_with_invalid_subscription:
+  email: "merchant2@mailinator.com"  
+
+change_user_password: 
+  current_password: 123456
+  new_password: 1234567
+  confirm_password: 1234567
+
+reset_user_password:
+  current_password: 1234567
+  new_password: 123456
+  confirm_password: 123456
+
+user_info_for_signup:
+    firstname: ~first_name
+    lastname: ~last_name
+    email: ~email_address
+    mobile: 08119786160
+    password: deal123
+    password_confirmation: deal123   

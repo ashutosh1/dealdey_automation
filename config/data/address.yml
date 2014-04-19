@@ -1,0 +1,12 @@
+pod_shipping_address:
+  pod_name: test
+  pod_address: 1/4 west patel nagar
+
+new_shipping_address:
+  shipping_address_name: ~randomize ['patel nagar', 'karol bag', 'cp']
+  address_line: ~randomize ['3/11 east', '1/4 west', '5/11 north']
+  address_landmark: ~street_address
+
+update_shipping_address:
+  shipping_address_name:  ~randomize ['patel nagar', 'karol bag', 'cp']
+  address_line: ~randomize ['3/11 east', '1/4 west', '5/11 north']

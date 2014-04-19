@@ -1,0 +1,15 @@
+html_report: -r features --tags ~@specific --format progress --format html --out=features_report.html
+default: -r features --tags ~@specific 
+specific: -r features --tags @specific
+junit: -r features --format junit --out reports.xml
+
+
+
+#cucumber --help
+#default: --format pretty -r features/support/env.rb -r features/support/plain.rb -r features/step_definitions features
+#selenium: -r features/support/env.rb -r features/support/selenium.rb -r features/step_definitions features
+#html_output: --format html -r features/support/env.rb -r features/support/plain.rb -r features/step_definitions features
+#cucumber features/landing_page/login.feature -f json -o cucumber.json
+
+#cucumber -f rerun --out rerun.txt
+#cucumber @rerun.txt

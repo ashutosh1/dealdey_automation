@@ -1,0 +1,36 @@
+first:
+  business_name: ~full_name
+  location: ~city
+  phone: ~cell_phone
+  email: ~email_address
+  contact_person: ~first_name
+  business_description: ~paragraphs
+
+merchant_signin_credential:
+  merchant_email: dealdey@gmail.com
+  merchant_password: qZYyQLb3
+
+merchant_with_valid_subscription:
+  merchant_email: merchant@mailinator.com
+  merchant_password: merch@123
+
+merchant_with_invalid_subscription:
+  merchant_email: merchant2@mailinator.com
+  merchant_password: merch2@123
+
+merchant_promo_details:  
+  promo_url: http://www.dealdey.com
+  promo_code: DL12002
+  business_address: ~street_address
+  coupon_title: ~title
+  coupon_keywords: ~first_name
+  
+change_merchant_password:
+  current_password: merch@123
+  new_password: merch@1234
+  confirm_password: merch@1234
+
+reset_merchant_password:
+  current_password: merch@1234
+  new_password: merch@123
+  confirm_password: merch@123
