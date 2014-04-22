@@ -40,9 +40,18 @@ class DealDey
     UserDealDetailPage.new
   end
 
+  def user_checkout_page
+    UserCheckoutPage.new
+  end
 
-
-
+  #Object of Merchant class
+  def merchant_signup_page
+    MerchantSignupPage.new
+  end
+  
+  def merchant_home_page
+    MerchantHomePage.new 
+  end
 
 
 

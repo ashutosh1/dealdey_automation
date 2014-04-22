@@ -5,7 +5,7 @@ module AjaxHelper
         begin
           active = page.evaluate_script('jQuery.active')
         rescue Exception => e 
-          puts e.message 
+          puts "Ajax helper error #{e.message}..............................."
         ensure
           break if active.nil? || active == 0
         end
