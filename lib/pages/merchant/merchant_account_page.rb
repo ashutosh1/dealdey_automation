@@ -1,70 +1,69 @@
-# class MerchantAccountPage
-#   include PageObject
+class MerchantAccountPage < SitePrism::Page
+  include AjaxHelper
+  include FormHelper
 
-#   MERCHANT_PASS_ATTR = ["Current password", "Password"]
-#   MERCHANT_PROFILE_ATTR = ["Business name", "Location", "Phone", "Contact person", "Business description"]
+  MERCHANT_PASS_ATTR = ["Current password", "Password"]
+  DEFAULT_ATTR = ["Business name", "Location", "Phone", "Contact person", "Business description"]
 
-#   link(:password_tab, :text => 'Password')
-#   link(:my_subscription_tab, :text => 'My Subscription')
+  element :password_tab, "div#tabs ul.tab li:nth-child(2) a", :text => "Password"
+  element :my_subscription_tab, "div#tabs ul.tab li:nth-child(3) a", :text => "My Subscription"
 
-#   #password tab
-#   text_field(:current_password, :id => "merchant_current_password")
-#   text_field(:new_password) do|page|
-#     page.div_element(:id => "update_password").when_visible.text_field_element(:id => "merchant_password")
-#   end
-#   text_field(:confirm_password, :id => "merchant_password_confirmation")
+  #password tab section
+  element :reset_password_form, "div#update_password form#edit_merchant"
+  element :current_password, "div#update_password form#edit_merchant ul li input#merchant_current_password"
+  element :new_password, "div#update_password form#edit_merchant ul li input#merchant_password"
+  element :confirm_password, "div#update_password form#edit_merchant ul li input#merchant_password_confirmation"
+  element :reset_password_button, "div#update_password form#edit_merchant ul li span.btnGreen span.main-button-orange input"
 
-#   #my subscription tab
-#   link(:proceed_to_payment, :text => 'Proceed To Payment')
-#   div(:merchant_welcome, :class => 'merchant_welcome')
-#   span(:premium_block, :class => 'premium_block')
-#   span(:normal_block, :class => 'normal_block')
+  #my subscription tab section
+  element :subscription_div, "div#subscribe"
+  element :proceed_to_payment, "div.proceed_button span.main-button-orange-arrow a"
+  element :normal_price_block, "div#merchant-notice div.options span.normal_block"
+  element :premium_price_block,"div#merchant-notice div.options span.premium_block"
 
-#   #profile tab
-#   form(:edit_profile_form, :class => "edit_merchant") 
-#   text_field(:phone, :id => "merchant_phone")
-#   text_field(:merchant_email) do|page|
-#     page.div_element(:id => "update_profile").text_field_element(:id => "merchant_email")
-#   end 
-#   text_field(:location, :id => "merchant_location")
-#   select_list(:category, :id => "merchant_category")
-#   text_field(:business_name, :id => "merchant_business_name")
-#   text_field(:contact_person, :id => "merchant_contact_person")
-#   text_field(:website, :id => "merchant_website")
-#   text_area(:business_description, :id => "merchant_business_description")  
-#   file_field(:logo_file, :id => 'merchant_logo')
+  #profile tab section
+  element :edit_profile_form, "div#update_profile form.edit_merchant"
+  element :phone, "div#update_profile form.edit_merchant ul li span.form-right input#merchant_phone"
+  element :merchant_email, "div#update_profile form.edit_merchant ul li span.form-right input#merchant_email"
+  element :location, "div#update_profile form.edit_merchant ul li span.form-right input#merchant_location"
+  element :business_name, "div#update_profile form.edit_merchant ul li span.form-right input#merchant_business_name"
+  element :contact_person, "div#update_profile form.edit_merchant ul li span.form-right input#merchant_contact_person"
+  element :website, "div#update_profile form.edit_merchant ul li span.form-right input#merchant_website"
+  element :business_description, "div#update_profile form.edit_merchant ul li span.form-right input#merchant_business_description"
+  element :category, "div#update_profile form.edit_merchant ul li span.form-right #merchant_category", visible: false    
+  element :logo_file, "div#update_profile form.edit_merchant ul li span.form-right #merchant_logo"
+  element :save_profile_button, "div#update_profile form.edit_merchant ul li.right.group.wat-cf.column input"
+
+  def reset_updated_password
+    populate_form(data_for("merchant_details/reset_merchant_password"))
+    submit_form
+  end
+
+  def fill_and_save_password_field(data = {})
+    populate_form(data_for("merchant_details/change_merchant_password").merge(data))
+    submit_form
+  end
   
-#   def reset_updated_password
-#     populate_page_with data_for("merchant_details/reset_merchant_password")
-#     save_password
-#   end
+  def subscription_section?
+    has_subscription_div? && has_proceed_to_payment? && multiple_subscription_offer?
+  end
 
-#   def fill_and_save_password_field(data = {})
-#     populate_page_with data_for("merchant_details/change_merchant_password").merge(data)
-#     save_password
-#   end
+  def multiple_subscription_offer?
+    has_premium_price_block? && has_normal_price_block?
+  end
 
-#   def save_password
-#     @browser.find_element(:xpath => "/html/body/div[2]/div[4]/div[2]/div[2]/div[2]/div/div[2]/form/ul/li[4]/span/span/input").click
-#   end
+  def populate_merchant_profile(data = {})
+    populate_form(data_for("merchant_details/first").merge(data))
+    category.find("option:nth-child(2)").select_option
+    submit_form
+  end
+
+  def submit_form
+    has_reset_password_button? ? reset_password_button.click : save_profile_button.click
+  end
   
-#   def subscription_section?
-#     proceed_to_payment? && merchant_welcome?
-#   end
-
-#   def multiple_subscription_offer?
-#     premium_block? && normal_block?
-#   end
-
-#   def save_profile
-#     @browser.find_element(:class => "savebut").click
-#   end
-
-#   def populate_merchant_profile(data = {})
-#     populate_page_with data_for("merchant_details/first").merge(data)
-#     category_element[2].click
-#     save_profile
-#   end
-
-# end  
-#   
+  def has_edit_profile_form_attr?
+    has_phone? && has_merchant_email? && has_contact_person? && has_business_name? && has_category?
+  end
+end  
+  

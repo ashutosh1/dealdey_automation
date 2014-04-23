@@ -24,7 +24,8 @@ class MerchantSignupPage < SitePrism::Page
   element :business_name, "form#merchant-contact-register-form #merchant_business_name"
   element :contact_person, "form#merchant-contact-register-form #merchant_contact_person"
   element :business_description, "form#merchant-contact-register-form #merchant_business_description"
-  
+  element :signup_button, "div.button span.main-button-orange input"
+
   #radio buttons
   element :offer_deal, "form#merchant-contact-register-form #merchant_offer_deal_true"
   element :offer_promo, "form#merchant-contact-register-form #merchant_offer_deal_false"
@@ -39,9 +40,10 @@ class MerchantSignupPage < SitePrism::Page
   element :deal_description, "#merchant_deal_description"
 
   #merchant forget password
-  element :forget_password_page, "div.merchantForgotPassword"
+  element :forget_password_div, "div.merchantForgotPassword"
   element :user_email_for_resend, "div.merchantForgotPassword #merchant_email"  
-
+  element :resend_password_instruction , "div.merchantForgotPassword form#new_merchant ul li span.btnGreen span.main-button-orange input"
+  
   def merchant_password=(value)
     execute_script("document.getElementById('merchant_password').value = '#{value}';")
   end
@@ -51,8 +53,8 @@ class MerchantSignupPage < SitePrism::Page
     sign_in.click
   end
 
-  def submit_form
-    @browser.find_element(:xpath => "/html/body/div[2]/div[6]/div[2]/div[2]/div/div[2]/div[2]/form/div[13]/span/input").click
+  def submit_signup_form
+    signup_button.click
   end
 
   def signin_and_signup_links?
@@ -60,9 +62,19 @@ class MerchantSignupPage < SitePrism::Page
   end
 
 	def populate_merchant(data = {})
-	  data = data_for("merchant_details/first").merge(data)
-	  populate_page_with data
-    self.category_element[1].click
+    data = data_for("merchant_details/first").merge(data)
+    populate_form(data)
+    category.find("option:nth-child(2)").select_option
+  end
+
+  def forget_password_page?
+    has_forget_password_div? && has_user_email_for_resend?
+  end
+  
+  def sign_in_merchant(valid_or_invalid_subscription=nil)
+    merchant = valid_or_invalid_subscription.nil? ? "merchant_with_valid_subscription" : valid_or_invalid_subscription
+    populate_form(data_for("merchant_details/#{merchant}"))
+    sign_in.click
   end
 
 end

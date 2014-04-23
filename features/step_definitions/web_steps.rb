@@ -1,18 +1,22 @@
 require 'uri'
 require 'cgi'
 
-Given /^(?:|I )am on "([^\"]*)" page$/ do |page_name|
-  @dealdey.send(page_name.split.join("_")).load
-  @dealdey.send(page_name.split.join("_")).displayed?
-end
+# Given /^(?:|I )am on "([^\"]*)" page$/ do |page_name|
+#   @dealdey.send(page_name.split.join("_")).load
+#   @dealdey.send(page_name.split.join("_")).displayed?
+# end
+
+# When /^(?:|I )go to (.+) page$/ do |page_name|
+#   @dealdey.send(page_name.split.join("_")).load
+#   @dealdey.shared_page.wait_default
+# end
 
 Then /^(?:|I )should be on "([^\"]*)"$/ do |page_name|
   expect(@dealdey.send(page_name.split.join("_")).displayed?).to eq(true)
 end
 
-When /^(?:|I )go to (.+) page$/ do |page_name|
-  @dealdey.send(page_name.split.join("_")).load
-  @dealdey.shared_page.wait_default
+And(/^I go back$/) do 
+  go_back
 end
 
 When /^(?:|I )press "([^\"]*)"$/ do |button|
@@ -26,6 +30,8 @@ end
 When /^(?:|I )select "([^\"]*)" from "([^\"]*)"$/ do |value, field|
   select(value, :from => field)
   # find("option[value='Male']").click
+  # find("option:nth-child(2)").click
+  # find("option", value).click
   # all('#foo option')[2].select_option
 end
 

@@ -53,6 +53,9 @@ class DealDey
     MerchantHomePage.new 
   end
 
+  def merchant_account_page
+    MerchantAccountPage.new 
+  end
 
 
   
