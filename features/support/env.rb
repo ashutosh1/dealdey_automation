@@ -12,7 +12,7 @@ require_all './lib/pages/*/*.rb'
 
 World(AjaxHelper, RescueBackgroundException)
 
-test_browser = 'firefox'
+test_browser = 'chrome'
 obj_higlight = HighlightAbstractTest.new
   
 Capybara.register_driver test_browser.to_sym do |app|
@@ -22,3 +22,4 @@ Capybara.default_driver = test_browser.to_sym
 
 Capybara.app_host = data_for("home")["url"]
 Capybara.default_wait_time = 10
+

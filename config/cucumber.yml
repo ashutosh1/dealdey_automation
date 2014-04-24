@@ -1,5 +1,5 @@
 html_report: -r features --tags ~@specific --format progress --format html --out=features_report.html
-default: -r features --tags ~@specific 
+default: -r features --tags ~@specific --format html --out report<%= ENV['TEST_ENV_NUMBER'] %>.html
 specific: -r features --tags @specific
 junit: -r features --format junit --out reports.xml
 
@@ -10,6 +10,6 @@ junit: -r features --format junit --out reports.xml
 #selenium: -r features/support/env.rb -r features/support/selenium.rb -r features/step_definitions features
 #html_output: --format html -r features/support/env.rb -r features/support/plain.rb -r features/step_definitions features
 #cucumber features/landing_page/login.feature -f json -o cucumber.json
-
+# --format json --out=features_report.json
 #cucumber -f rerun --out rerun.txt
 #cucumber @rerun.txt

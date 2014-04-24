@@ -1,27 +1,31 @@
 And(/^I click contact on merchant home page$/) do
-  on(MerchantContactAndFaqPage).contact
+  @dealdey.merchant_contact_and_faq_page.contact.click
 end 
 
-Then(/^I should see "([^\"]*)" image$/)do|img|
-  expect(on(MerchantContactAndFaqPage).send("#{img}?")).to eq(true)
+Then(/^I should see head and branch office image of dealdey$/) do
+  expect(@dealdey.merchant_contact_and_faq_page.branch_and_head_office_image?).to eq(true)
 end 
 
 Then(/^I should see "([^\"]*)" map$/)do|gmap|
-  expect(on(MerchantContactAndFaqPage).send("#{gmap}?")).to eq(true)
+  expect(@dealdey.merchant_contact_and_faq_page.send("has_#{gmap.downcase.split.join('_')}?")).to eq(true)
 end 
 
 Then(/^I should see help email "([^\"]*)"$/)do|email|
-  expect(on(MerchantContactAndFaqPage).help_email?).to eq(true)
+  expect(@dealdey.merchant_contact_and_faq_page.help_email.text).to eq(email)
 end 
 
 Then(/^I should see advertise email "([^\"]*)"$/)do|email|
-  expect(on(MerchantContactAndFaqPage).advertise_email?).to eq(true)
+  expect(@dealdey.merchant_contact_and_faq_page.advertise_email.text).to eq(email)
 end 
 
 Then(/^I should see faq title "(.*?)"$/) do |arg1|
-  expect(on(MerchantContactAndFaqPage).faq_page_title).to eq(arg1)
+  expect(@dealdey.merchant_contact_and_faq_page.faq_page_title.text).to eq(arg1)
 end
 
 And(/^I click faq on merchant home page$/) do
-  on(MerchantContactAndFaqPage).faq
+  @dealdey.merchant_contact_and_faq_page.faq.click
 end 
+
+Then(/^I should see premium_slider image$/) do 
+  expect(@dealdey.merchant_contact_and_faq_page.has_premium_slider?).to eq(true)
+end

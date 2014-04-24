@@ -57,7 +57,7 @@ Then(/^I should see update profile form$/) do
 end
 
 Then(/^I should see email field is disabled$/) do
-  expect(@dealdey.merchant_account_page.merchant_email[:readonly]).to eq("true")
+  expect(@dealdey.merchant_account_page.email[:readonly]).to eq("true")
 end
 
 And(/^I update profile on my account section$/) do

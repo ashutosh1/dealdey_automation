@@ -37,6 +37,10 @@ class UserCartPage < SitePrism::Page
   element :new_shipping_address_state, "form.edit_cart #state", visible: false  
   element :new_shipping_address_area, "form.edit_cart #area", visible: false  
   
+  #Cart table on hover of cart icon
+  element :cart_items_table, "div.cart-details-hover table.cart-items-header"
+  elements :remove_deals_from_cart_table_button, "div.cart-details-hover table.cart-items-header tr.cart_item_area td.action a"
+
   def edit_deal_quantity(limit)
     change_quantity(data_for("deals_data/shared")[limit] + 1)
   end
@@ -106,6 +110,24 @@ class UserCartPage < SitePrism::Page
     wait_for_ajax
     new_shipping_address_area.find('option:nth-child(2)').select_option
     proceed_to_payment_button.click
+  end
+
+  def clear_cart
+    return unless has_deals_in_cart?
+    hover_cart_icon
+    remove_deals_from_cart_table_button.each do |elem|
+      hover_cart_icon
+      elem.click
+      wait_for_ajax
+    end
+  end
+
+  def has_deals_in_cart?
+    deals_count_in_cart.text.to_i > 0
+  end
+
+  def hover_cart_icon
+    cart_icon.hover
   end
 
 end

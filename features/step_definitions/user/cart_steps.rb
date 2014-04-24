@@ -73,3 +73,7 @@ end
 And(/^I proceed with new shipping address$/) do
   @dealdey.user_cart_page.populate_new_shipping_address
 end
+
+And(/^I clear the cart$/) do 
+  @dealdey.user_cart_page.clear_cart
+end

@@ -43,5 +43,5 @@ sftp vinsol@prep.dealdey.com -- <<@@
   exit
   ~.
 @@
-cp $COPY_FILE_NAME ~/Projects/dealdey-cucumbers/config/data
+cp $COPY_FILE_NAME ~/Projects/dealdey_automation/config/data
 rm $COPY_FILE_NAME

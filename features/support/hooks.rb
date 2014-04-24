@@ -17,3 +17,8 @@ After do|scenario|
     embed(File.expand_path(File.join("config/screenshot/", "#{time}" + ".png")), "image/png", "SCREENSHOT(#{time}.png)")
   end
 end
+
+# After('@reset_session') do 
+#   Capybara.reset_sessions!
+#   puts "Session cleared....................."
+# end

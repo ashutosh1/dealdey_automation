@@ -6,6 +6,7 @@ def check_all_inline_error(class_name)
 end
 
 Then(/^I should see flash message "([^\"]*)"$/) do |expected_text|
+  @dealdey.user_shared_page.wait_for_flash(10)
   expect(@dealdey.user_shared_page.flash.text).to eq(expected_text)
 end
 

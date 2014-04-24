@@ -45,13 +45,12 @@ Scenario: my subscription on account page
   And I should see proceed to payment link
 
 @profile_section
-Scenario: profile section on account page
+Scenario: update profile on account page
   Then I should see update profile form
   And I should see email field is disabled
 
-Scenario: update profile on account page
   And I update profile on my account section
-  Then I should see flash notice "Your account details have been updated successfully."
+  Then I should see flash message "Your account details have been updated successfully."
   
 Scenario: update profile with blank form
   And I update profile with blank values

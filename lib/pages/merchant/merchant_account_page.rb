@@ -3,7 +3,7 @@ class MerchantAccountPage < SitePrism::Page
   include FormHelper
 
   MERCHANT_PASS_ATTR = ["Current password", "Password"]
-  DEFAULT_ATTR = ["Business name", "Location", "Phone", "Contact person", "Business description"]
+  DEFAULT_ATTR = ["Business name", "Location", "Phone", "Contact person"]
 
   element :password_tab, "div#tabs ul.tab li:nth-child(2) a", :text => "Password"
   element :my_subscription_tab, "div#tabs ul.tab li:nth-child(3) a", :text => "My Subscription"
@@ -24,7 +24,7 @@ class MerchantAccountPage < SitePrism::Page
   #profile tab section
   element :edit_profile_form, "div#update_profile form.edit_merchant"
   element :phone, "div#update_profile form.edit_merchant ul li span.form-right input#merchant_phone"
-  element :merchant_email, "div#update_profile form.edit_merchant ul li span.form-right input#merchant_email"
+  element :email, "div#update_profile form.edit_merchant ul li span.form-right input#merchant_email"
   element :location, "div#update_profile form.edit_merchant ul li span.form-right input#merchant_location"
   element :business_name, "div#update_profile form.edit_merchant ul li span.form-right input#merchant_business_name"
   element :contact_person, "div#update_profile form.edit_merchant ul li span.form-right input#merchant_contact_person"
@@ -63,7 +63,7 @@ class MerchantAccountPage < SitePrism::Page
   end
   
   def has_edit_profile_form_attr?
-    has_phone? && has_merchant_email? && has_contact_person? && has_business_name? && has_category?
+    has_phone? && has_email? && has_contact_person? && has_business_name? && has_category?
   end
 end  
   

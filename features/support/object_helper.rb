@@ -57,6 +57,10 @@ class DealDey
     MerchantAccountPage.new 
   end
 
+  def merchant_contact_and_faq_page
+    MerchantContactAndFaqPage.new
+  end
+
 
   
   def admin_checkout_page

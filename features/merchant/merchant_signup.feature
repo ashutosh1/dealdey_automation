@@ -25,7 +25,7 @@ Scenario: sign in as a merchant
   Then I should be on "merchant home page"
 
 @need_to_fix_email_validation
-Scenario: merchant signup page and submit signup for with invalid data
+Scenario: merchant signup page and submit signup form with invalid data
   Given I am on merchant signup page
   Then I should see merchant signup form
 

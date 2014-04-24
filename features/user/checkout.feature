@@ -4,6 +4,7 @@ Feature: Checkout Page
 Background:
   And I close the subscription popup
   And I am signed in as user
+  And I clear the cart
 
 @non_shippable @wallet_payment
 Scenario: checkout for non shippable deal

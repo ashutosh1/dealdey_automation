@@ -1,11 +1,13 @@
 Given(/^I am on account page$/) do
   rescue_background_exception do 
     @dealdey.user_account_page.account.hover
+    @dealdey.user_account_page.wait_for_settings
     @dealdey.user_account_page.settings.click
   end
 end
 
 Then(/^I see profile details$/) do
+  @dealdey.user_account_page.wait_for_profile_form
   expect(@dealdey.user_account_page.has_profile_form?).to eq(true)
 end 
 
