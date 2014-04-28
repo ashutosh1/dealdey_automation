@@ -8,7 +8,7 @@ Background:
 Scenario: submits blank or invalid form
   Then I should see signup form
   And I submit blank signup form
-  Then I should see inline error on all "SignupPage" mandatory field
+  Then I should see inline error on all "UserSignupPage" mandatory field
 
   And I submit signup form with wrong email
   Then I should see inline error "Email is invalid"

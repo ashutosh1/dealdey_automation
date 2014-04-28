@@ -62,7 +62,7 @@ Scenario: submit blank shipping address
   Given I am on update address page
   And I submit blank shipping address form
   Then I should see flash message "Please correct below errors, before continuing"
-  Then I should see inline error on all "AccountPage" mandatory field
+  Then I should see inline error on all "UserAccountPage" mandatory field
 
 Scenario: update password
   Given I am on update update password page

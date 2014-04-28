@@ -77,7 +77,7 @@ Scenario: checkout of non shippable deals using POD with new address
   And I click on select or add your shipping address
 
   When I click on proceed to payment within new pod address form
-  Then I should see inline error on all "CheckoutPage" mandatory field
+  Then I should see inline error on all "UserCheckoutPage" mandatory field
 
   And I submit new shipping address for pod
   And I click complete order button for pod

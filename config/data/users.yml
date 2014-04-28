@@ -41,3 +41,9 @@ user_info_for_signup:
     mobile: 08119786160
     password: deal123
     password_confirmation: deal123   
+
+test_form_data:
+  deal_title: test
+  deal_test_deal: true
+  deal_secret: true
+  radio: true    

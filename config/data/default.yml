@@ -20,3 +20,6 @@ rencreditmax_deal:
 rencredit_deal: 
   url: /deals/its-a-rencredit-deal-39
   title: Its a rencredit deal
+
+admin_section:
+  url: "/admin"

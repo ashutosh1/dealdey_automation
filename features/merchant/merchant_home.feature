@@ -22,7 +22,7 @@ Scenario: Home page for merchant with valid subscription
 Scenario: As a merchant with valid subscription submit promo offer form with invalid data
   And I am logged in as merchant with valid subscription
   And I submit promo offer
-  Then I should see inline error on all "MerchantHomePage" mandatory field of merchant
+  Then I should see inline error on all "MerchantHomePage" mandatory field
 
   And I fill promo "promo_url" with "test"
   And I submit promo offer

@@ -8,6 +8,7 @@ And(/^I enter "([^\"]*)" in search field$/) do |text|
 end
 
 Then(/^I should see search suggestions$/) do
+  @dealdey.user_search_page.wait_for_auto_suggest_results_header
   expect(@dealdey.user_search_page.search_suggestion?).to eq(true)
 end
 
@@ -41,5 +42,3 @@ And(/^I search with "(.*?)"$/) do |text|
   @dealdey.user_search_page.search_field.set(text)
   @dealdey.user_search_page.search
 end
-
-

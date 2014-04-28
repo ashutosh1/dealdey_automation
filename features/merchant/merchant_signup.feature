@@ -31,7 +31,7 @@ Scenario: merchant signup page and submit signup form with invalid data
 
   And I submit the signup form
   Then I should see flash message "Please fix the below mentioned errors to continue."
-  Then I should see inline error on all "MerchantSignupPage" mandatory field of merchant
+  Then I should see inline error on all "MerchantSignupPage" mandatory field
 
   And I fill "email" with "test"
   And I submit the signup form

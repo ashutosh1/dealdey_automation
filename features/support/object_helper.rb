@@ -1,83 +1,15 @@
 class DealDey
-
-  def user_login_page
-    UserLoginPage.new
-  end
-
-  def user_shared_page
-    UserSharedPage.new
-  end
-
-  def user_subscription_popup
-    UserSubscriptionPopup.new
-  end
-
-  def user_signup_page
-    UserSignupPage.new
-  end
-
-  def user_search_page
-    UserSearchPage.new
-  end
-
-  def user_forget_password_page
-    UserForgetPasswordPage.new
-  end
-
-  def user_footer_link_page
-    UserFooterLinkPage.new
-  end
-
-  def user_account_page
-    UserAccountPage.new
-  end
-
-  def user_cart_page
-    UserCartPage.new
-  end
-
-  def user_deal_detail_page
-    UserDealDetailPage.new
-  end
-
-  def user_checkout_page
-    UserCheckoutPage.new
-  end
-
-  #Object of Merchant class
-  def merchant_signup_page
-    MerchantSignupPage.new
-  end
+  USER_PAGES = ["UserLoginPage", "UserSharedPage", "UserSubscriptionPopup", "UserSignupPage", "UserSearchPage", "UserForgetPasswordPage", "UserFooterLinkPage", "UserAccountPage", "UserCartPage", "UserDealDetailPage", "UserCheckoutPage"]
+  MERCHANT_PAGES = ["MerchantSignupPage", "MerchantHomePage", "MerchantAccountPage","MerchantContactAndFaqPage"]
+  ADMIN_PAGES = ["AdminLandingPage", "AdminLoginPage", "AdminDealsPage", "AdminNewProductDealPage","AdminCartPage", "AdminCheckoutPage"]
   
-  def merchant_home_page
-    MerchantHomePage.new 
+  (USER_PAGES + MERCHANT_PAGES + ADMIN_PAGES).each do |meth|
+    define_method(meth.underscore){Object.const_get(meth).new}
+    # define_method(meth.underscore) do 
+    #   var = instance_variable_get("@#{meth.underscore}")
+    #   return var if var
+    #   instance_variable_set("@#{meth.underscore}", Object.const_get(meth).new)
+    # end  
   end
-
-  def merchant_account_page
-    MerchantAccountPage.new 
-  end
-
-  def merchant_contact_and_faq_page
-    MerchantContactAndFaqPage.new
-  end
-
-
-  
-  def admin_checkout_page
-    Admin::CheckoutPage.new
-  end
-
-  def admin_cart_page
-    Admin::CartPage.new
-  end
-
-  def admin_shared_page
-    Admin::SharedPage.new
-  end
-
-  def admin_login_page
-    Admin::LoginPage.new
-  end
-
 
 end

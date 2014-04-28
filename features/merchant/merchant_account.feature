@@ -55,8 +55,8 @@ Scenario: update profile on account page
 Scenario: update profile with blank form
   And I update profile with blank values
   Then I should see flash message "Please fix the below mentioned errors to continue."
-  And I should see inline error on all "MerchantAccountPage" mandatory field of merchant
-
+  And I should see inline error on all "MerchantAccountPage" mandatory field
+  
   And I update profile with invalid website on my account section
   Then I should see flash message "Please fix the below mentioned errors to continue."
   Then I should see inline error "Website is invalid"

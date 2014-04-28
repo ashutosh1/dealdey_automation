@@ -10,7 +10,7 @@ include DataMagic
 require_all './lib/shared/*.rb'
 require_all './lib/pages/*/*.rb'
 
-World(AjaxHelper, RescueBackgroundException)
+World(AjaxHelper, RescueBackgroundException, UrlHelper)
 
 test_browser = 'chrome'
 obj_higlight = HighlightAbstractTest.new
@@ -23,3 +23,14 @@ Capybara.default_driver = test_browser.to_sym
 Capybara.app_host = data_for("home")["url"]
 Capybara.default_wait_time = 10
 
+class String
+  def underscore
+    word = self.dup
+    word.gsub!(/::/, '/')
+    word.gsub!(/([A-Z]+)([A-Z][a-z])/,'\1_\2')
+    word.gsub!(/([a-z\d])([A-Z])/,'\1_\2')
+    word.tr!("-", "_")
+    word.downcase!
+    word
+  end
+end

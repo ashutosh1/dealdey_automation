@@ -23,9 +23,5 @@ Then(/^I should not see inline error "(.*?)"$/) do |expected_text|
 end
 
 Then(/^I should see inline error on all "([^\"]*)" mandatory field$/) do|class_name|
-  check_all_inline_error("User#{class_name}")
-end 
-
-Then(/^I should see inline error on all "([^\"]*)" mandatory field of merchant$/) do|class_name|
   check_all_inline_error(class_name)
 end 
