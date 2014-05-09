@@ -6,6 +6,18 @@ admin_second:
   email: vij102@mailinator.com
   password: 123456
 
+test_user_one:
+  email: vijay1@mailinator.com
+  password: 123456  
+
+test_user_two:
+  email: vijay12@mailinator.com
+  password: 123456  
+
+test_user_three:
+  email: vijay123@mailinator.com
+  password: 123456  
+
 user_update_data: 
   firstname: ~first_name
   lastname: ~last_name

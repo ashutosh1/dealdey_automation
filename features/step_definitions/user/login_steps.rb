@@ -41,3 +41,21 @@ Given(/^I am signed in as user$/) do
     And I submit sign in form with valid credentials
   }
 end
+
+Given(/^I am signed in as another user$/) do 
+  steps %{
+    And I click Sign In link
+    And I submit sign in form with "admin second" login
+  }
+end
+
+And(/^I submit sign in form with "(.*?)" login$/) do |user|
+  @dealdey.user_login_page.populate_signin_form(data_for("users/#{user.downcase.split.join('_')}"))
+end
+
+Given(/^I am signed in as "(.*?)"$/) do |user|
+  steps %{
+    And I click Sign In link
+    And I submit sign in form with "#{user}" login
+  }
+end

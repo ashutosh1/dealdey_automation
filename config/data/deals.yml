@@ -1,0 +1,20 @@
+new_deal:
+  deal_title: ~title
+  deal_short_title: ~last_name
+  deal_sku_number: 20
+  deal_sms_text: This is an sms text
+  deal_list_price: 100
+  deal_discounted_price: 80
+  deal_commission: 10
+  deal_address_line1: ~street_address
+  deal_shippable_states_1: true
+  deal_cod_available: true
+  
+highlight_iframe:
+  text: This is an awesome deal for you
+
+description_iframe:
+  text: This is multiusable deal 
+
+fine_print_iframe:    
+  text: There is very fine print on this product

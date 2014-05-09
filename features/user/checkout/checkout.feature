@@ -6,7 +6,7 @@ Background:
   And I am signed in as user
   And I clear the cart
 
-@non_shippable @wallet_payment
+@wallet_payment_for_non_shippable_deal
 Scenario: checkout for non shippable deal
   Given I go to cart page of "non shippable deal"
   And I proceed to payment
@@ -14,7 +14,7 @@ Scenario: checkout for non shippable deal
   Then I should see "Order Successful"
   And I should see "Thanks for shopping on DealDey!"
 
-@shippable_with_old_address @wallet_payment
+@wallet_payment_for_shippable_deal_with_old_address
 Scenario: checkout for shippable deal
   Given I go to cart page of "shippable deal"
   And I should see addresses to select
@@ -27,7 +27,7 @@ Scenario: checkout for shippable deal
   Then I should see "Order Successful"
   And I should see "Thanks for shopping on DealDey!"
 
-@shippable_with_new_ship_address @wallet_payment
+@wallet_payment_for_shippable_deal_with_new_address
 Scenario: checkout with new shipping address for shippable deal
   Given I go to cart page of "shippable deal"
   Then I should see new ship addresses form
@@ -40,7 +40,7 @@ Scenario: checkout with new shipping address for shippable deal
   Then I should see "Order Successful"
   And I should see "Thanks for shopping on DealDey!"
   
-@shippable_pod
+@pod_for_shippable_deal_with_old_address
 Scenario: checkout of shippable deals using POD
   Given I go to cart page of "pod shippable deal"
   And I select first address
@@ -49,7 +49,7 @@ Scenario: checkout of shippable deals using POD
   Then I should see "Order Successful"
   And I should see "Thanks for shopping on DealDey!"
 
-@shippable_pod  
+@pod_for_shippable_deal_with_new_address
 Scenario: checkout of shippable deals using POD with new address
   Given I go to cart page of "pod shippable deal"
   And I proceed with new shipping address
@@ -57,7 +57,7 @@ Scenario: checkout of shippable deals using POD with new address
   Then I should see "Order Successful"
   And I should see "Thanks for shopping on DealDey!"
 
-@non_shippable_pod
+@pod_for_non_shippable_deal
 Scenario: checkout of non shippable deals using POD
   Given I go to cart page of "pod non shippable deal"
   And I proceed to payment
@@ -69,7 +69,7 @@ Scenario: checkout of non shippable deals using POD
   Then I should see "Order Successful"
   And I should see "Thanks for shopping on DealDey!"
 
-@non_shippable_pod
+@pod_for_non_shippable_deal_with_new_pod_address
 Scenario: checkout of non shippable deals using POD with new address
   Given I go to cart page of "pod non shippable deal"
   And I proceed to payment
@@ -84,7 +84,7 @@ Scenario: checkout of non shippable deals using POD with new address
   Then I should see "Order Successful"
   And I should see "Thanks for shopping on DealDey!"
 
-@rencredit_deals  
+@rencredit_payment_for_deal
 Scenario: checkout with RENCREDIT
   Given I go to cart page of "rencreditmax deal"
   And I select first address
@@ -110,6 +110,7 @@ Scenario: Order sum is less than min limit of rencredit deals
   And I proceed to payment with existing address
   Then I should not see Rencredit payment method
 
+@rencredit_payment_for_multiple_deals  
 Scenario: rencredit deals with multiple order
   Given I go to cart page of "non shippable deal"
   Given I go to cart page of "rencreditmax deal"
@@ -119,3 +120,15 @@ Scenario: rencredit deals with multiple order
   And I click continue
   Then I should see flash message "Only below listed items are available under Rencredit Installment Payment Option."
   Then I should see 1 products in my cart on cart page
+
+@one_credit_payment_for_deals  
+Scenario: one credit payment
+  Given I am signed in as user
+  Given I go to cart page of "non shippable deal"
+  And I proceed to payment
+  And I do not see checkbox to use wallet
+  And I click on onecredit payment method
+  And I click on Complete Order button for one credit payment
+  Then I should see "Order Successful"
+  And I should see "Thanks for shopping on DealDey!"
+  

@@ -23,6 +23,7 @@ Then(/^I should see updated grand total$/) do
 end
 
 Then(/^I should see "([^\"]*)" in alert box$/) do|expected_text|
+  sleep(5)
   alert = page.driver.browser.switch_to().alert();
   message = alert.text
   alert.accept()

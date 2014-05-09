@@ -1,8 +1,6 @@
 module InlineErrorHelper
 
   def check_errors?(val)
-    p val
-    p self.inline_error_messages.collect(&:text)
     self.inline_error_messages.collect(&:text).include?(val + " can't be blank")
   end
 

@@ -1,9 +1,10 @@
 # require File.expand_path(File.join(File.dirname(__FILE__), 'apps/dealdey_prep/current/config', 'environment'))
-require File.expand_path(File.join(File.dirname(__FILE__), 'Projects/dealday/config', 'environment'))
+require File.expand_path(File.join(File.dirname(__FILE__), 'apps/dealdey_staging/current/config', 'environment'))
+# require File.expand_path(File.join(File.dirname(__FILE__), 'Projects/dealday/config', 'environment'))
 require 'yaml/store'
 yml_file =  YAML::Store.new "#{Dir.home}/default.yml"
 yml_file.transaction do 
-  yml_file["home"] = {"url" => "http://vinsol:v1ns0l@dd@prep.dealdey.com"}
+  yml_file["home"] = {"url" => "http://vinsol:v1ns0l0dd@staging.dealdey.com"}
 end
 
 `chmod +x ~/deals_data.yml`
@@ -14,7 +15,7 @@ fashion_category_id = Category.where(can_have_pg: true).first.id
 non_fashion_category_id = Category.where(can_have_pg: false).first.id
 product_group_id = ProductGroup.where("status = ? AND start_date <= ? AND end_date >= ?", true, Time.zone.now.to_date, Time.zone.now.to_date).first.id
 
-deals_type = ["shippable_deal", "non_shippable_deal", "pod_shippable_deal", "pod_non_shippable_deal", "rencreditmax_deal", "rencredit_deal"]
+deals_type = ["shippable_deal", "non_shippable_deal", "pod_shippable_deal", "pod_non_shippable_deal", "rencreditmax_deal", "rencredit_deal", "one_nira_deal"]
 flash_deal_type = ["shippable_deal", "rencreditmax_deal", "rencredit_deal"]
 
 deals_type.each do |type|
@@ -43,4 +44,8 @@ deals_type.each do |type|
     yml_file[type] = {"url" => "/deals/#{deal.permalink}", "title" => deal.title}
   end
 
+end
+
+yml_file.transaction do 
+  yml_file["admin_section"] = {"url" => "/admin"}
 end

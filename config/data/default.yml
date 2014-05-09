@@ -1,25 +1,26 @@
 --- 
 home: 
-  url: http://localhost:3000
-  prep_url: http://vinsol:v1ns0l@dd@prep.dealdey.com
+  url: http://vinsol:v1ns0l0dd@staging.dealdey.com
 shippable_deal: 
-  url: /deals/black-slazenger-mens-polo-shirt-20
+  url: /deals/black-slazenger-mens-polo-shirt
   title: Black Slazenger Mens Polo Shirt
 non_shippable_deal: 
-  url: /deals/limited-time-offer-14
+  url: /deals/limited-time-offer
   title: Limited - Time offer
 pod_shippable_deal: 
-  url: /deals/beaudy-professional-hair-straightene-20
+  url: /deals/beaudy-professional-hair-straightene
   title: Beaudy Professional Hair Straightene
 pod_non_shippable_deal: 
-  url: /deals/pod-service-deal-1-20
+  url: /deals/pod-service-deal-1
   title: PoD Service Deal 1
 rencreditmax_deal: 
-  url: /deals/its-a-rencredit-deal-38
+  url: /deals/its-a-rencredit-deal-3
   title: Its a rencredit deal
 rencredit_deal: 
-  url: /deals/its-a-rencredit-deal-39
+  url: /deals/its-a-rencredit-deal-4
   title: Its a rencredit deal
-
-admin_section:
-  url: "/admin"
+one_nira_deal: 
+  url: /deals/minimum-price-deal
+  title: minimum price deal
+admin_section: 
+  url: /admin

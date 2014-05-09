@@ -41,7 +41,16 @@ rencredit_deal:
   sku_number: DD2450
   rencredit_purchasable: true
   returns: "Lorem ipsum dolor sit amet.Lorem ipsum dol..."
-  
+
+one_nira_deal:
+  title: minimum price deal
+  shippable: false
+  shippable_states: 0
+  sku_number: DD2440
+  list_price: 3.0
+  discounted_price: 2.0
+  commission: 1.0
+
 shared:
   description: "Lorem ipsum dolor sit amet.&nbsp;Lorem ipsum dol..."
   list_price: 4444.4
