@@ -1,5 +1,5 @@
-# require File.expand_path(File.join(File.dirname(__FILE__), 'apps/dealdey_prep/current/config', 'environment'))
-require File.expand_path(File.join(File.dirname(__FILE__), 'Projects/dealday/config', 'environment'))
+require File.expand_path(File.join(File.dirname(__FILE__), 'apps/dealdey_staging/current/config', 'environment'))
+# require File.expand_path(File.join(File.dirname(__FILE__), 'Projects/dealday/config', 'environment'))
 ["vijay12@mailinator.com", "vijay123@mailinator.com", "vijay@vinsol.com", "vij102@mailinator.com", "vijay1@mailinator.com"].each do |mail|
   unless User.unscoped.where(email: mail).exists?
     user = User.create!(email: mail, firstname: "Vijay", lastname: "Autotest", password: 123456, age_bracket: "18-25", gender: "Male", mobile: "08919191911")

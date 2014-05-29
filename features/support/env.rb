@@ -12,7 +12,7 @@ require_all './lib/pages/*/*.rb'
 
 World(AjaxHelper, RescueBackgroundException, UrlHelper)
 
-test_browser = 'chrome'
+test_browser = 'firefox'
 obj_higlight = HighlightAbstractTest.new
   
 Capybara.register_driver test_browser.to_sym do |app|

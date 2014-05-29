@@ -1,7 +1,7 @@
 class DealDey
   USER_PAGES = ["UserLoginPage", "UserSharedPage", "UserSubscriptionPopup", "UserSignupPage", "UserSearchPage", "UserForgetPasswordPage", "UserFooterLinkPage", "UserAccountPage", "UserCartPage", "UserDealDetailPage", "UserCheckoutPage"]
   MERCHANT_PAGES = ["MerchantSignupPage", "MerchantHomePage", "MerchantAccountPage","MerchantContactAndFaqPage"]
-  ADMIN_PAGES = ["AdminLandingPage", "AdminLoginPage", "AdminDealsPage", "AdminNewProductDealPage","AdminCartPage", "AdminCheckoutPage"]
+  ADMIN_PAGES = ["AdminLandingPage", "AdminLoginPage", "AdminDealsPage", "AdminNewProductDealPage","AdminCartPage", "AdminCheckoutPage", "AdminOrdersPage"]
   
   (USER_PAGES + MERCHANT_PAGES + ADMIN_PAGES).each do |meth|
     define_method(meth.underscore){Object.const_get(meth).new}
